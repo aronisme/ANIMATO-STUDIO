@@ -1,0 +1,7 @@
+{
+  "name": "AI Animato Studio",
+  "description": "A comprehensive wizard-based tool for creators to conceptualize, script, and generate visual prompts for AI-driven short-form animations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
