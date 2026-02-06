@@ -634,6 +634,7 @@ const SettingsModal: React.FC<{
             <select className="w-full bg-slate-800 border-2 border-slate-700 rounded-2xl p-4 text-slate-100 font-bold" value={settings.model} onChange={(e) => setSettings({ ...settings, model: e.target.value })}>
               <option value={AIModel.FLASH_3}>Gemini 3 Flash (Fast & Efficient)</option>
               <option value={AIModel.PRO_3}>Gemini 3 Pro (Advanced & Powerful)</option>
+              <option value={AIModel.FLASH_2_5}>Gemini 2.5 Flash (Experimental)</option>
             </select>
           </div>
 
