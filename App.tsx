@@ -326,25 +326,25 @@ const App: React.FC = () => {
   // --- Step Rendering ---
 
   const renderStep0 = () => (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 animate-in fade-in duration-500">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-in fade-in duration-500">
       <div className="space-y-6">
         <label className="text-[10px] font-black text-indigo-400 uppercase tracking-widest block">1. Pilih Topik Animasi</label>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {Object.values(ContentType).map(t => (
             <button key={t} onClick={() => setState(p => ({ ...p, concept: { ...p.concept, type: t } }))} className={`p-4 rounded-2xl border-2 text-xs font-black text-left transition-all ${state.concept.type === t ? 'bg-indigo-600 border-indigo-400 text-white' : 'bg-slate-800/50 border-slate-700/50 text-slate-400 hover:border-slate-500'}`}>{t}</button>
           ))}
         </div>
       </div>
-      <div className="p-8 bg-slate-800/40 rounded-[40px] border border-white/5 backdrop-blur-xl space-y-6 shadow-2xl">
+      <div className="p-6 bg-slate-800/40 rounded-[24px] border border-white/5 backdrop-blur-xl space-y-6 shadow-2xl">
         <div className="space-y-4">
           <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest block">Konfigurasi Produksi</label>
-          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-4 text-sm font-bold" value={state.concept.language} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, language: e.target.value as Language } }))}>
+          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-3 text-sm font-bold" value={state.concept.language} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, language: e.target.value as Language } }))}>
             {Object.values(Language).map(l => <option key={l} value={l}>{l}</option>)}
           </select>
-          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-4 text-sm font-bold" value={state.concept.style} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, style: e.target.value as AnimationStyle } }))}>
+          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-3 text-sm font-bold" value={state.concept.style} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, style: e.target.value as AnimationStyle } }))}>
             {Object.values(AnimationStyle).map(s => <option key={s} value={s}>{s}</option>)}
           </select>
-          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-4 text-sm font-bold" value={state.concept.tone} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, tone: e.target.value as Tone } }))}>
+          <select className="w-full bg-slate-900 border border-slate-700 rounded-2xl p-3 text-sm font-bold" value={state.concept.tone} onChange={e => setState(p => ({ ...p, concept: { ...p.concept, tone: e.target.value as Tone } }))}>
             {Object.values(Tone).map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         </div>
@@ -353,12 +353,12 @@ const App: React.FC = () => {
   );
 
   const renderStep2 = () => (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 animate-in fade-in duration-500">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-500">
       <div className="lg:col-span-2 space-y-6">
-        <div className="p-8 bg-slate-800/40 border-2 border-slate-700 rounded-[40px] shadow-2xl">
+        <div className="p-6 bg-slate-800/40 border-2 border-slate-700 rounded-[24px] shadow-2xl">
           <textarea className="w-full h-[400px] bg-transparent border-none text-slate-200 text-xl font-medium leading-relaxed focus:outline-none resize-none custom-scrollbar" value={state.script?.text} onChange={e => setState(p => ({ ...p, script: p.script ? { ...p.script, text: e.target.value } : null }))} />
         </div>
-        <div className="p-8 bg-slate-900/60 border border-slate-800 rounded-[32px] space-y-6">
+        <div className="p-6 bg-slate-900/60 border border-slate-800 rounded-[24px] space-y-6">
           <div className="space-y-3">
             <label className="text-[10px] font-black text-indigo-400 uppercase tracking-widest block">Saran Hook & Penutup (Klik untuk Tambah)</label>
             <div className="flex flex-wrap gap-2">
@@ -369,7 +369,7 @@ const App: React.FC = () => {
         </div>
       </div>
       <div className="space-y-6">
-        <div className="p-8 bg-indigo-600 rounded-[40px] shadow-2xl space-y-8">
+        <div className="p-6 bg-indigo-600 rounded-[24px] shadow-2xl space-y-6">
           <h3 className="text-white font-black uppercase tracking-tighter text-xl">Voice Generator</h3>
           <div className="space-y-4">
             <div className="flex gap-2">
@@ -389,9 +389,9 @@ const App: React.FC = () => {
 
   const renderStep3 = () => (
     <div className="space-y-10 animate-in fade-in duration-500">
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6">
         {state.script?.segments.map((seg, i) => (
-          <div key={i} className="flex flex-col lg:flex-row gap-8 p-10 bg-slate-800/20 border-2 border-slate-800/50 rounded-[48px] group transition-all">
+          <div key={i} className="flex flex-col lg:flex-row gap-6 p-6 bg-slate-800/20 border-2 border-slate-800/50 rounded-[32px] group transition-all">
             <div className="w-full lg:w-[320px] shrink-0">
               <div className="aspect-video bg-slate-900 rounded-[32px] overflow-hidden relative border-2 border-slate-800">
                 {seg.previewUrl ? <img src={seg.previewUrl} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-slate-700">Empty visual</div>}
@@ -439,34 +439,34 @@ const App: React.FC = () => {
   const renderStep4 = () => {
     const music = getBGM(state.concept.tone);
     return (
-      <div className="max-w-4xl mx-auto py-20 text-center animate-in zoom-in-95 duration-700">
+      <div className="max-w-4xl mx-auto py-12 text-center animate-in zoom-in-95 duration-700">
         <div className="w-32 h-32 bg-indigo-600 rounded-[40px] flex items-center justify-center mx-auto mb-12 shadow-2xl rotate-6">
           <svg className="w-16 h-16 text-white -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7" /></svg>
         </div>
         <h2 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter">Ready for Production!</h2>
         <p className="text-xl text-slate-400 mb-12">Unduh aset Anda dan mulailah mengedit konten viral Anda hari ini.</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
           <button onClick={async () => {
             if (state.audioUrl) {
               const res = await fetch(state.audioUrl);
               const blob = await res.blob();
               downloadFile(blob, `Narasi_${state.selectedIdea?.title || 'Animato'}.wav`);
             }
-          }} className="p-10 bg-slate-800 hover:bg-slate-700 border-2 border-slate-700 rounded-[40px] font-black text-xs uppercase tracking-[0.3em] flex flex-col items-center gap-4 group">
+          }} className="p-6 bg-slate-800 hover:bg-slate-700 border-2 border-slate-700 rounded-[24px] font-black text-xs uppercase tracking-[0.3em] flex flex-col items-center gap-4 group">
             <svg className="w-8 h-8 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
             Download Audio Narasi
           </button>
           <button onClick={() => {
             const txt = state.script?.segments.map((s, i) => `Segmen ${i + 1} (${s.startTime.toFixed(1)}s - ${s.endTime.toFixed(1)}s):\nNarasi: ${s.narrativeLine}\nPrompt: ${s.prompt}\n\n`).join("");
             downloadFile(new Blob([txt], { type: 'text/plain' }), `Prompts_${state.selectedIdea?.title || 'Animato'}.txt`);
-          }} className="p-10 bg-indigo-600 hover:bg-indigo-500 rounded-[40px] font-black text-xs uppercase tracking-[0.3em] text-white flex flex-col items-center gap-4 group">
+          }} className="p-6 bg-indigo-600 hover:bg-indigo-500 rounded-[24px] font-black text-xs uppercase tracking-[0.3em] text-white flex flex-col items-center gap-4 group">
             <svg className="w-8 h-8 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
             Download Visual Prompts
           </button>
         </div>
 
-        <div className="p-10 bg-slate-900/60 border border-slate-800 rounded-[48px]">
+        <div className="p-6 bg-slate-900/60 border border-slate-800 rounded-[32px]">
           <h4 className="text-slate-500 font-black uppercase text-[10px] tracking-[0.4em] mb-8">Rekomendasi Musik Latar</h4>
           <div className="flex flex-wrap justify-center gap-4">
             {music.map(m => <div key={m} className="px-6 py-3 bg-slate-800 border border-slate-700 rounded-2xl text-[10px] font-black text-indigo-400 uppercase tracking-widest">♫ {m}</div>)}
@@ -478,7 +478,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#050914] text-slate-200 selection:bg-indigo-500 selection:text-white pb-32">
-      <nav className="sticky top-0 z-50 bg-[#050914]/80 backdrop-blur-2xl border-b border-white/5 px-8 py-6 flex justify-between items-center">
+      <nav className="sticky top-0 z-50 bg-[#050914]/80 backdrop-blur-2xl border-b border-white/5 px-6 py-3 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-xl"><svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path d="M15 10L19.5528 7.72361C20.2177 7.39116 21 7.87465 21 8.61803V15.382C21 16.1253 20.2177 16.6088 19.5528 16.2764L15 14M7 18H11C12.1046 18 13 17.1046 13 16V8C13 6.89543 12.1046 6 11 6H7C5.89543 6 5 6.89543 5 8V16C5 17.1046 5.89543 18 7 18Z" /></svg></div>
           <h1 className="text-xl font-black uppercase tracking-tighter">Animato <span className="text-indigo-500">Studio</span></h1>
@@ -491,21 +491,21 @@ const App: React.FC = () => {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-8 pt-12">
-        <div className="max-w-4xl mx-auto mb-20 flex justify-between relative">
+      <main className="max-w-7xl mx-auto px-6 pt-6">
+        <div className="max-w-4xl mx-auto mb-10 flex justify-between relative">
           <div className="absolute left-0 top-1/2 w-full h-0.5 bg-slate-800 -translate-y-1/2 rounded-full"></div>
           <div className="absolute left-0 top-1/2 h-0.5 bg-indigo-500 -translate-y-1/2 rounded-full transition-all duration-700" style={{ width: `${(state.step / 4) * 100}%` }}></div>
           {[0, 1, 2, 3, 4].map(s => <div key={s} className={`relative z-10 w-10 h-10 rounded-2xl flex items-center justify-center text-xs font-black transition-all ${state.step >= s ? 'bg-indigo-600 text-white shadow-xl rotate-12' : 'bg-slate-800 text-slate-600'}`}>{s + 1}</div>)}
         </div>
 
-        <div className="min-h-[60vh] py-10">
+        <div className="min-h-[60vh] py-6">
           {state.step === 0 && renderStep0()}
           {state.step === 1 && (
             <div className="space-y-10 animate-in fade-in duration-500">
               <h2 className="text-3xl font-black uppercase tracking-tighter">Hasil Brainstorming</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {state.ideas.map((idea, i) => (
-                  <div key={i} onClick={() => setState(p => ({ ...p, selectedIdea: idea }))} className={`p-8 rounded-[40px] border-2 cursor-pointer transition-all ${state.selectedIdea?.title === idea.title ? 'bg-indigo-600 border-indigo-400 shadow-2xl scale-[1.02]' : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800'}`}>
+                  <div key={i} onClick={() => setState(p => ({ ...p, selectedIdea: idea }))} className={`p-5 rounded-[24px] border-2 cursor-pointer transition-all ${state.selectedIdea?.title === idea.title ? 'bg-indigo-600 border-indigo-400 shadow-2xl scale-[1.02]' : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800'}`}>
                     <div className="flex justify-between mb-4"><span className="text-[10px] font-black uppercase text-indigo-400">{idea.viralScore} Viral Potential</span></div>
                     <h3 className="text-xl font-black mb-2 text-white">{idea.title}</h3>
                     <p className="text-xs italic text-slate-400">"{idea.hook}"</p>
@@ -520,7 +520,7 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      <footer className="fixed bottom-0 left-0 w-full bg-[#050914]/90 backdrop-blur-3xl border-t border-white/5 px-10 py-8 flex justify-between items-center z-[60]">
+      <footer className="fixed bottom-0 left-0 w-full bg-[#050914]/90 backdrop-blur-3xl border-t border-white/5 px-8 py-5 flex justify-between items-center z-[60]">
         <button onClick={handleBack} disabled={state.step === 0 || state.isGenerating} className={`px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest ${state.step === 0 ? 'opacity-0' : 'text-slate-400 hover:text-white'}`}>Kembali</button>
         <button onClick={handleNextStep} disabled={(state.step === 1 && !state.selectedIdea) || state.step === 4 || state.isGenerating} className="px-14 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-[24px] font-black text-xs uppercase tracking-widest transition-all shadow-2xl disabled:opacity-30">
           {state.step === 2 ? 'Proses Visual Storyboard' : 'Langkah Selanjutnya'}
@@ -621,7 +621,7 @@ const SettingsModal: React.FC<{
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4" onClick={onClose}>
-      <div className="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-[32px] p-8 shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar" onClick={e => e.stopPropagation()}>
+      <div className="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-[24px] p-6 shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar" onClick={e => e.stopPropagation()}>
         <div className="flex justify-between items-center mb-8">
           <h3 className="text-white font-black uppercase text-lg tracking-widest">Settings & API Management</h3>
           <button onClick={onClose} className="text-slate-500 hover:text-white text-2xl">✕</button>
@@ -631,7 +631,7 @@ const SettingsModal: React.FC<{
           {/* AI Model Settings */}
           <div className="space-y-4">
             <label className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">AI Model</label>
-            <select className="w-full bg-slate-800 border-2 border-slate-700 rounded-2xl p-4 text-slate-100 font-bold" value={settings.model} onChange={(e) => setSettings({ ...settings, model: e.target.value })}>
+            <select className="w-full bg-slate-800 border-2 border-slate-700 rounded-2xl p-3 text-slate-100 font-bold" value={settings.model} onChange={(e) => setSettings({ ...settings, model: e.target.value })}>
               <option value={AIModel.FLASH_3}>Gemini 3 Flash (Fast & Efficient)</option>
               <option value={AIModel.PRO_3}>Gemini 3 Pro (Advanced & Powerful)</option>
               <option value={AIModel.FLASH_2_5}>Gemini 2.5 Flash (Experimental)</option>

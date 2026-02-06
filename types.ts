@@ -45,8 +45,8 @@ export enum Platform {
 export enum AIModel {
   FLASH_3 = 'gemini-3-flash-preview',
   PRO_3 = 'gemini-3-pro-preview',
-  FLASH_2_5 = 'gemini-2.0-flash-exp',
-  IMAGE_2_5 = 'gemini-2.5-flash-image',
+  FLASH_2_5 = 'gemini-2.5-flash-lite',
+  IMAGE_2_5 = 'gemini-2.5-flash',
   IMAGE_PRO_3 = 'gemini-3-pro-image-preview'
 }
 
